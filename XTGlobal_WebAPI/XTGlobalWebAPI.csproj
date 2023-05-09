@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationInsightsResourceId>/subscriptions/8cf956a8-5a4f-454e-bbf3-fb2376c22816/resourceGroups/RG_XTGlobal/providers/microsoft.insights/components/XTGlobalWebAPI202305091550</ApplicationInsightsResourceId>
+    <UserSecretsId>bfcf7cc8-26f0-4965-a32c-784dd5c6df8b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FruityviceAPI\FruityviceAPI.csproj" />
+  </ItemGroup>
+
+</Project>
