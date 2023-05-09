@@ -1,6 +1,7 @@
 ﻿using FruityviceAPI.Models;
 using FruityviceAPI.Services.Interface;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace FruityviceAPI.Services.Implementation
@@ -9,10 +10,12 @@ namespace FruityviceAPI.Services.Implementation
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
-        public FruityviceAPIService(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        private readonly ILogger<FruityviceAPIService> _logger;
+        public FruityviceAPIService(IHttpClientFactory httpClientFactory, IConfiguration configuration, ILogger<FruityviceAPIService> logger)
         {
             _httpClientFactory = httpClientFactory;
             _configuration = configuration;
+            _logger = logger;
         }
 
         /// <summary>
@@ -43,7 +46,8 @@ namespace FruityviceAPI.Services.Implementation
             }
             catch(Exception ex)
             {
-
+                _logger.LogError("Error from GetAllFruits API Service - " + ex.Message);
+                throw;
             }
             return fruitModels;
         }
@@ -78,7 +82,8 @@ namespace FruityviceAPI.Services.Implementation
             }
             catch(Exception ex)
             {
-                
+                _logger.LogError("Error from GetFruitsByFamily API Service - " + ex.Message);
+                throw;
             }
             return fruitModels;
         }
