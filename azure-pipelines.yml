@@ -32,3 +32,14 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(8cf956a8-5a4f-454e-bbf3-fb2376c22816)'
+    appType: 'webApp'
+    WebAppName: 'XTGlobalWebAPI'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'RG_XTGlobal'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
