@@ -23,7 +23,7 @@ namespace XTGlobalWebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetAllFruits")]
+        [Route("RetrieveAllFruits")]
         public async Task<IActionResult> Fruits()
         {
             var fruits = await _getAllFruits.Get();
