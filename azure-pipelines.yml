@@ -32,10 +32,7 @@ steps:
 - task: VSTest@2
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-  --> **\*Tests.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
+    testAssemblyVer2: '**\*Test*.dll\n!**\*TestAdapter.dll\n!**\obj\**'
     searchFolder: '$(System.DefaultWorkingDirectory)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
