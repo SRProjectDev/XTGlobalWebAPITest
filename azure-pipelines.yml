@@ -46,4 +46,4 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'RG_XTGlobal'
     SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(ZIPPackageDirectory)/*.zip'
